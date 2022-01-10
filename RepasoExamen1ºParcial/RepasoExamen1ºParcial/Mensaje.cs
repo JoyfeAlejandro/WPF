@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RepasoExamen1ºParcial
 {
-    public class Mensaje // La clase tiene que ser PUBLICA
+    public class Mensaje // La clase tiene que ser PUBLICA aaaaa
     {
         public Mensaje() { }
 
