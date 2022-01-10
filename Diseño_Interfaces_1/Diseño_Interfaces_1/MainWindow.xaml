@@ -1,0 +1,77 @@
+﻿<Window x:Class="Diseño_Interfaces_1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diseño_Interfaces_1"
+        mc:Ignorable="d"
+        
+        Title="Programote" 
+        Height="720" 
+        Width="1280"
+        ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush ImageSource="/1-nubes-en-el-cielo.jpg"/>
+    </Window.Background>
+
+    <Grid>
+        <!--Esto es como un body, pero puedes tener varios-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel x:Name="ContenedorLogin" Orientation="Vertical" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="300" Width="800">
+            <!--Esto es como un div-->
+            <StackPanel.Background>
+                <ImageBrush ImageSource="/nube-izquierda.png"/>
+            </StackPanel.Background>
+
+            <DockPanel x:Name="ContenedorUsuario" HorizontalAlignment="Left" VerticalAlignment="Center" Width="800" Height="50">
+                <Label Content="Usuario" Width="130" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="tbUsuario" Foreground="Black" Background="#7FA47ECB" Width="600" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" FontSize="18"/>
+            </DockPanel>
+
+            <DockPanel x:Name="ContenedorPassword" HorizontalAlignment="Left" VerticalAlignment="Center" Width="800" Height="50">
+                <Label Content="Password" Width="130" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="tbPassword" Foreground="Black" Background="#7FA47ECB" VerticalAlignment="Center" Width="600" HorizontalAlignment="Center" Height="30" FontSize="18"/>
+            </DockPanel>
+
+            <DockPanel x:Name="ContenedorBotones" Width="400" Height="70" Margin="0,33,0,0">
+                <Button x:Name="BotonLogin" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Height="70" Width="170" Click="Al_Login" RenderTransformOrigin="0.503,-0.432" FontSize="25">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black"/>
+                            <GradientStop Color="#FFB40F46" Offset="0.6"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="BotonRegister" Content="Register" HorizontalAlignment="Right" VerticalAlignment="Top" Height="69" Width="170" Click="Al_Register" RenderTransformOrigin="0.503,-0.432" FontSize="25">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black"/>
+                            <GradientStop Color="#FFB40F46" Offset="0.6"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </DockPanel>
+
+            <DockPanel x:Name="ContenedorOlvido" Height="25" Margin="0,20,0,0">
+                <Label Content="¿Has olvidado tu contraseña?" HorizontalAlignment="Center" FontWeight="Bold" FontStyle="Italic"/>
+            </DockPanel>
+
+        </StackPanel>
+
+        <StackPanel x:Name="ContenedorVersion" Grid.Row="3" Grid.Column="3">
+            <Label x:Name="Version" Content="Versión 0.2" FontSize="20" FontFamily="Consolas" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="67,70,0,0"/>
+        </StackPanel>
+
+    </Grid>
+
+</Window>

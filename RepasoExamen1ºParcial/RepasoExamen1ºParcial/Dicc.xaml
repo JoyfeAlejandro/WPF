@@ -1,0 +1,102 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <DataTemplate x:Key="MensajeLista">
+        <Border BorderThickness="1" 
+                BorderBrush="#FF32280A"
+                Background="#CC8D6E1B"
+                Width="240">
+
+            <StackPanel>
+                <TextBlock Text="Mensajito:"
+                           FontSize="11"
+                           FontWeight="Bold"
+                           FontFamily="Palatino Linotype"/>
+
+                <TextBlock Text="{Binding Texto}"
+                           FontSize="11"
+                           FontFamily="Palatino Linotype"/>
+            </StackPanel>
+        </Border>
+    </DataTemplate>
+
+    <ControlTemplate x:Key="MiBotton" TargetType="Button">
+        <Grid>
+            <VisualStateManager.VisualStateGroups> <!--Visual state para las animaciones-->
+                <VisualStateGroup Name="CommonStates">
+                    <VisualState Name="Normal">
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="Fondo" 
+                                            Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                            To="{TemplateBinding Background}"
+                                            Duration="0:0:0.1"/>
+
+                            <DoubleAnimation Storyboard.TargetName="Fondo"
+                                            Storyboard.TargetProperty="Width"
+                                            To="{TemplateBinding Width}"
+                                            Duration="0:0:0.1"/>
+
+                            <DoubleAnimation Storyboard.TargetName="Fondo"
+                                            Storyboard.TargetProperty="Height"
+                                            To="{TemplateBinding Height}"
+                                            Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </VisualState>
+                    
+                    <VisualState Name="MouseOver">
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="Fondo"
+                                            Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" 
+                                            To="sc#0.8, 0.4125426, 0.3231432, 0.144128472"
+                                            Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </VisualState>
+
+                    <VisualState Name="Pressed">
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="Fondo"
+                                            Storyboard.TargetProperty="Width"
+                                            To="160"
+                                            Duration="0:0:0.1"/>
+
+                            <DoubleAnimation Storyboard.TargetName="Fondo"
+                                            Storyboard.TargetProperty="Height"
+                                            To="50"
+                                            Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+
+            <!--Rectangle (o Ellipse, Line, Path, Polygon, Polyline, Shape) para la forme del coso-->
+            <Rectangle Name="Fondo"
+                     Fill="{TemplateBinding Background}"
+                     Stroke="{TemplateBinding Foreground}"
+                     Width="150" Height="40"/>
+
+            <!--ContentPresenter para el aligment-->
+            <ContentPresenter HorizontalAlignment="Center" 
+                              VerticalAlignment="Center"/>
+        </Grid>
+    </ControlTemplate>
+</ResourceDictionary>
+
+<!--<Button x:Name="Añadir" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    Background="Transparent"
+                    Click="Añadir_Click">
+
+    <Border Background="#CC8D6E1B"
+                        Width="150" Height="40"
+                        >
+
+        <TextBlock HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"
+                               FontSize="20" 
+                               FontFamily="Palatino Linotype" 
+                               Foreground="#FF32280A"
+                               Text="Añade" 
+                               FontWeight="Bold"/>
+    </Border>
+</Button>-->
